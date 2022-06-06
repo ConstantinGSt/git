@@ -1,0 +1,18 @@
+git config --global user.name
+git config --global user.email 
+mkdir git
+ls -la
+git init
+
+* создание fale в gitbash
+touch FaleName.txt
+
+git log
+git status
+
+git add FaleName dirName
+git commit -m "commit"
+* луччше коммитить файлы по одиночке или группами 
+* что бы не писать поэмму к изменениям
+
+
