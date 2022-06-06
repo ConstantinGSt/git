@@ -13,6 +13,7 @@ git status
 
 git add FaleName dirName
 git commit -m "commit"
+git commit -am "add + commit" 
 * луччше коммитить файлы по одиночке или группами 
 * что бы не писать поэмму к изменениям
 
@@ -26,6 +27,8 @@ git restore --staged faleName - откатит файлик после add но 
 git diff - показывает изменения после последнего коммита
 git diff --staged - изменения в stage если ты вдруг проеб момент до комманды add
 
+git mv faleName /newFileName или каталог/newFileName- перенести - переименовать
+* у меня данная команда не включает в себя add
 бля не хуйца
 
 
