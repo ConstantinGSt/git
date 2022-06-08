@@ -36,6 +36,8 @@ git restore faleName - отменить изменения
 
 git rm --cached falename - удаляет из коммита и переводит файл в состояние Untracked
 
-ВЕТКИ  Branches
+* ВЕТКИ  Branches
+git branch new-api - создание новой ветки (new-api) - назвение ветки
+git checkout nameBranches - переход на нужную ветку
 
-
+* накидал несколько веток щас буду мержить
