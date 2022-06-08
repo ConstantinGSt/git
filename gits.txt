@@ -41,3 +41,5 @@ git branch new-api - создание новой ветки (new-api) - назв
 git checkout nameBranches - переход на нужную ветку
 git branch -d branchName - удалить ветку
 git merge branchName - мержить - сдвинуть указатель неад из мастера на последний коммент ветки которую мержишь в мастер
+
+создал ветку one
