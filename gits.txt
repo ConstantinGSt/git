@@ -36,7 +36,6 @@ git restore faleName - отменить изменения
 
 git rm --cached falename - удаляет из коммита и переводит файл в состояние Untracked
 
-
-бля не хуйца
+ВЕТКИ  Branches
 
 
