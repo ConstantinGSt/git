@@ -1,0 +1,7 @@
+UTF-8
+select - выбрать
+* -все
+select * from tableName
+select top 10 (strings) * from tableName     - для всех остальных систем select * from tableName limit 10(strings)
+select top 45 percent (strings) * from tableName - говорят сложно будет все MSQL
+
