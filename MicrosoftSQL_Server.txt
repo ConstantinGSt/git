@@ -1,8 +1,8 @@
-UTF-8
-select - выбрать
-* -все колонки
-select * from tableName по умолчанию все строки
-select top 10 (strings) * from tableName     - для всех остальных систем select * from tableName limit 10(strings)
-select top 45 percent (strings) * from tableName - говорят сложно будет все MSQL
+п»їUTF-8
+select - РІС‹Р±СЂР°С‚СЊ
+* - РІСЃРµ РєРѕР»РѕРЅРєРё
+select * from tableName РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РІСЃРµ СЃС‚СЂРѕРєРё
+select top 10 (strings) * from tableName     - РґР»СЏ РѕСЃС‚Р°Р»СЊРЅС‹С… СЃРёСЃС‚РµРј - select * from tableName limit 10(strings)
+select top 45 percent (strings) * from tableName вЂ” РґР»СЏ РґСЂСѓРіРёС… СЃРёСЃС‚РµРј Р·Р°РїСЂРѕСЃ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ Р±РѕР»РµРµ СЃР»РѕР¶РЅРѕС‡РµРј РІ  MSQL
 select columnName, columnName,.. (or * select all column) from tableName
 
