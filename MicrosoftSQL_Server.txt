@@ -11,4 +11,8 @@ select - выбрать
 ** через пробел от названия колонки можно написать ее псевдоним
 --* вычисления со столбцами
 6 select top 3 columnName columnNickName, numColumnNam*/+-num columnNickName from tableName
-* в 6 примере запрашиваем первые три строки, дам псевдоним 1 колонке, производим вычисление с колонкой и даем название колонке с выводом вычисления.
+* в 6 примере запрашиваем первые три строки, дам псевдоним 1 колонке, производим вычисление с 
+* колонкой и даем название колонке с выводом вычисления.
+* select columnName as columnNickName ==  select columnName columnNickName поэтому as не используем
+7 select columName+' '+ columnName  columnNickName from tableName
+* +' '+ разделитель между строковыми колонками
