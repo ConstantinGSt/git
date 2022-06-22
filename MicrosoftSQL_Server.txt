@@ -1,10 +1,14 @@
 ﻿UTF-8
 select - выбрать
 * - все колонки
-select * from tableName по умолчанию все строки
-select top 10 (strings) * from tableName     - первые 10 строк в MSQL 
+1 select * from tableName - по умолчанию все строки
+2 select top 10 (strings) * from tableName     - первые 10 строк в MSQL 
 * select * from tableName limit 10(strings) - первые 10 строк в PostgresSQL
-select top 45 percent (strings) * from tableName — для других систем запрос выполняется более сложночем в  MSQL
-select columnName, columnName,.. (or * select all column) from tableName  - выбор нужных колонок в нужном порядке
-select top 10 (strings) columnName * from tableName - первые 10 строк в колонке  MSQL 
- select columnName * from tableName limit 10 (strings) - первые 10 строк в колонке PostgresSQL
+3 select top 45 percent (strings) * from tableName — для других систем запрос выполняется более сложночем в  MSQL
+4 select columnName, columnName,.. (or * select all column) from tableName  - выбор нужных колонок в нужном порядке
+5 select top 10 (strings) columnName * from tableName - первые 10 строк в колонке  MSQL 
+ *select columnName * from tableName limit 10 (strings) - первые 10 строк в колонке PostgresSQL
+** через пробел от названия колонки можно написать ее псевдоним
+--* вычисления со столбцами
+6 select top 3 columnName columnNickName, numColumnNam*/+-num columnNickName from tableName
+* в 6 примере запрашиваем первые три строки, дам псевдоним 1 колонке, производим вычисление с колонкой и даем название колонке с выводом вычисления.
