@@ -2,7 +2,9 @@
 select - выбрать
 * - все колонки
 select * from tableName по умолчанию все строки
-select top 10 (strings) * from tableName     - для остальных систем - select * from tableName limit 10(strings)
+select top 10 (strings) * from tableName     - первые 10 строк в MSQL 
+* select * from tableName limit 10(strings) - первые 10 строк в PostgresSQL
 select top 45 percent (strings) * from tableName — для других систем запрос выполняется более сложночем в  MSQL
-select columnName, columnName,.. (or * select all column) from tableName
-
+select columnName, columnName,.. (or * select all column) from tableName  - выбор нужных колонок в нужном порядке
+select top 10 (strings) columnName * from tableName - первые 10 строк в колонке  MSQL 
+ select columnName * from tableName limit 10 (strings) - первые 10 строк в колонке PostgresSQL
