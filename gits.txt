@@ -71,3 +71,4 @@ git tag somefing - легковесный таг
 git tag -a tagName -m "коммит к нему"
 git push serveName tegName - отправит конкретный таг на конкретный сервер
 git push --tags - отправит все теги
+читабельно
