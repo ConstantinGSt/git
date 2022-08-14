@@ -1,0 +1,19 @@
+ssh port 1024or more - example 68782
+/etc/ssh/sshd_config
+PermitRootLogin yes
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+service sshd restart
+
+герерим ssh ключи
+apt install openssh-server openssh-clients
+ssh-keygen
+вводим куда храним
+/home/username/.ssh/falename
+парльку по желанию
+sudo ssh-copy-id -i .ssh/filename.pub root@ipServer -pPORT
+.ssh/congig - посмотреть инфо
+echo ssh-rsa строка-публичного-ключа >> /root/.ssh/authorized_keys - название файлу можно монять но не забыть прописать его далее тут : /etc/ssh/sshd_config
+
