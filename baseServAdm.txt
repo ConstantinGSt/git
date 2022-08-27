@@ -1,3 +1,6 @@
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Alt>Shift_L', 'XF86Keyboard']" --- раскладка клавиатуры в ubuntu
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Super>space', 'XF86Keyboard']" - возврат по умолчанию
+
 ssh port 1024or more - example 68782
 /etc/ssh/sshd_config
 PermitRootLogin yes
