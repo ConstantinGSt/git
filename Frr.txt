@@ -1,0 +1,69 @@
+service frr status
+vtysh
+enable
+conf t (configure terminal) многое подрезано у Cisco
+exit
+hostname <Name> обозвать роут чтоб не паритс в куче открытых окон
+
+enable password  ***
+service password-encryption тоже повторяет циску
+
+*шаблон настройки интерфейса
+R1(config)# interface eth0 
+R1(config-if)# description to_PC1 - можно указать куда смотрит
+R1(config-if)# ip address 10.0.2.1/24 
+R1(config-if)# no ip address 10.0.2.1/24 - no перед командой отменяет ее
+R1(config-if)# no shutdown / no sh - поднять
+end  - сразу на верхний ур
+
+*сохранения текущей конфигаруции в качестве стартовой в энергонезависимую память
+copy running-config startup-config / copy run st 
+
+write / wr / wr mem
+
+sh run / show running-config - сморит текущую конфигу
+sh star / show startup-config - стартовую
+
+* список и статус всех интерфейсов
+sh interface brief 
+
+show ip route - роут табл
+
+*** статика
+
+ip route <адрес сети назначения>/<префикс сети назначения> <next-hop ip-адрес>
+R1# conf t
+R1(config)# ip route 192.168.2.0/24 (255.255.255.0) 10.0.0.2
+R1(config)# exit
+
+*Список всехстатических маршрутов в конфигурации
+show running-config | include ip route 
+
+show ip route static -  вывести только статические маршруты
+
+no ip route 10.0.3.0/24 10.0.1.10 - Удаление статического маршрута
+
+show running-config staticd - * статические маршруты в текущей конфигурации на R
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
