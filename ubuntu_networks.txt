@@ -1,0 +1,40 @@
+ifconfig
+ifconfig eth0 192.168.1.100 netmask 255.255.255.0 up
+*
+ip addr add ip/mask dev eth
+ip addr del ip/mask dev eth
+ip link show - список интерфейсов
+ip link set up - подн€ть / применить настройки
+*
+nano /etc/netplan/01-netcfg.yaml (убунта 18+)
+netplan apply
+*
+nano /etc/network/interfaces
+systemctl restart networking
+*
+ip addr show
+ip route show
+* - табл маршутизации
+route
+ip route
+netsta -r  
+    U - маршрут активен,
+    H - адрес назначени€ принадлежит устройству,
+    G - маршрут используетс€ как шлюз по умолчанию,
+    D - маршрут получен с использованием протоколов динамической машрутизации;
+    C - закешированный маршрут.
+*
+ping
+traceroute
+
+* добавить . изменить Gateway
+ip route add default via <ip> - до ребута
+ip route del default
+nano /etc/network/interfaces смотри gateway
+если надо пересылать трафик между интерфейсами см:
+/proc/sys/net/ipv4/ip_forward - 0 запрещено/ 1 включено
+echo 1 > /proc/sys/net/ipv4/ip_forward - временное разрешение
+/etc/systemctl.conf мен€й на 1 т гут
+
+ping -i ethNum ip - пинг через конкретный eth 
+     -c - колличество запросов
