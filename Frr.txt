@@ -45,23 +45,51 @@ no ip route 10.0.3.0/24 10.0.1.10 - Удаление статического маршрута
 
 show running-config staticd - * статические маршруты в текущей конфигурации на R
 
+directly connected - локальные сети для роута - С
 
+--------------------RIP---------------------------------
 
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#network 10.0.1.0/24
+Router(config-router)#network 10.0.2.0/24
+Router# show ip route rip
 
+--------------------OSPF----------------------------------
+Router#conf t
+Router(config)#router ospf 1 (опционально номер процесса, пока нах не упаль)
+Router(config-router)#ospf router-id 1.1.1.1 (id обычно равен loopback)
+Router(config-router)#network 10.0.1.0/24 area 0  - номер ареа не забываем воткнуть 
+*
+Router(config)# interface eth1      -- замена стоимости на порту
+Router(config-if)# ip ospf cost 200  -- делать с двух сторон!
+*
+Router(config-router)#passive-interface eth1 - интерфейс в сторону конечных сетей (без ospf)
+*
+проверка работы ospf
+Router# show ip ospf int eth1 - подробно на интерфейсе
+Router# show ip ospf neighbor - кратенько по соседям
+Router# show ip route ospf - показывает маршруты 
 
+**-------------для нескольких зон------------------------*
+-----------на ABR-------------
+Router(config-router)#area 1 stub                 #Stub area
+Router(config-router)#area 1 stub no-summary      #Totally stub area
+Router(config-router)#area 1 nssa                 #NSSA area
+Router(config-router)#area 1 nssa no-summary      #TNSSA area
 
+no-summary - отключает рассылки LSA3 внутрь зоны
 
+--------------на роутах нумерованных зон-------------------
+Router(config-router)#area 1 stub                 #Stub area
+Router(config-router)#area 1 stub                 #Totally stub area
+Router(config-router)#area 1 nssa                 #NSSA area
+Router(config-router)#area 1 nssa                 #TNSSA area
 
+Router(config)#int eth1
+Router(config-if)#ip ospf network point-to-point - точка точка только в сторону таких же роутов
 
-
-
-
-
-
-
-
-
-
+show ip ospf database  - а это что бы сделать умный вид и выпал глаз от кучи инфы
 
 
 
