@@ -61,7 +61,7 @@ Router(config)#router ospf 1 (опционально номер процесса, пока нах не упаль)
 Router(config-router)#ospf router-id 1.1.1.1 (id обычно равен loopback)
 Router(config-router)#network 10.0.1.0/24 area 0  - номер ареа не забываем воткнуть 
 *
-Router(config)# interface eth1      -- замена стоимости на порту
+Router(config)# iface eth1      -- замена стоимости на порту
 Router(config-if)# ip ospf cost 200  -- делать с двух сторон!
 *
 Router(config-router)#passive-interface eth1 - интерфейс в сторону конечных сетей (без ospf)
@@ -91,7 +91,36 @@ Router(config-if)#ip ospf network point-to-point - точка точка только в сторону 
 
 show ip ospf database  - а это что бы сделать умный вид и выпал глаз от кучи инфы
 
+***-------------------------BGP----------------------***
+номера AS 64512Ц65535 зарезервированы дл€ внутреннего использовани€.
+
+  *  указать номер собственной автономной системы;
+  *  настроить идентификатор маршрутизатора (router-id);
+  *  указать информацию о BGP-сосед€х;
+  *  указать, какие сети необходимо анонсировать соседним роутерам;
+  *  настроить политики и фильтры дл€ принимаемых и анонсируемых маршрутов при необходимости;
+  *  проверить работу протокола BGP.
 
 
-
-
+1 настраиваем iface 
+2 loopback iface
+3 поднимаем OSPF - без него R не будут видеть loopback-адреса друг друга
+4 interface lo
+  ip address 1.1.1.1/32
+  ip ospf network point-to-point - loopback как point-to-point
+5 R1# configure terminal 
+  R1(config)# router bgp 65500
+  R1(config-router)# bgp router-id 1.1.1.1
+  R1(config-router)# bgp log-neighbor-changes - лог изменений состо€ни€ соседа, если откл/вкл - подзапись
+  R1(config-router)# end
+------show-----------------
+  R1# show ip route 2.2.2.2
+  R1# ping 2.2.2.2 
+------erf;tv cjctltqd--------------- 1 2 и 4 на обоих маршрутизаторах
+  R1(config-router)# neighbor 2.2.2.2 remote-as internal - сосед int
+  R1(config-router)# neighbor 2.2.2.2 update-source lo  - используем loopback, а не физику, как источник обновлений
+  R1(config-router)# address-family ipv4 unicast  - ¬ключает поддержку IPv4-маршрутов в BGP (без этого маршруты не передаютс€)
+  R1(config-router-af)# neighbor 2.2.2.2 activate  - разрешает обмен маршрутов с соседом 
+-------------------јнонс сети----------------------
+  R1(config-router)# address-family ipv4 unicast
+  R1(config-router-af)# network 172.16.10.0/24
